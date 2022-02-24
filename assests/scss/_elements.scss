@@ -1,0 +1,92 @@
+.container {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+.button {
+  color: var(--color-text-button);
+  padding: 0.8rem 3rem;
+  border: 3px solid var(--color-headings);
+  font-size: 1.6rem;
+  font-weight: 700;
+  background-color: var(--color-headings);
+  border-radius: 9999px;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  @media only screen and (max-width: 767px) {
+    padding: 0.4rem 1.5rem;
+    font-size: 1.2rem;
+  }
+}
+
+.button-small {
+  padding: 0.4rem 1.5rem;
+  font-size: 1rem;
+  font-weight: normal;
+  border: none;
+  border: 2px solid var(--color-headings);
+  transition: all 0.2s;
+  &:hover {
+    background-color: transparent;
+    color: var(--color-headings);
+    transform: scale(1.05);
+  }
+}
+
+.card {
+  padding: 3rem 4rem;
+  background-color: var(--bg-panel);
+  border-radius: 5px;
+  @media only screen and(max-width:991px) {
+    padding: 1.5rem 2rem;
+  }
+  .card__title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    @media only screen and(max-width:767px) {
+      font-size: 1.6rem;
+      margin-bottom: 1.4rem;
+    }
+  }
+  .card__text {
+    font-size: 1.2rem;
+    line-height: 2rem;
+    @media only screen and(max-width:767px) {
+      font-size: 1.2rem;
+      // line-height: 1.4rem;
+    }
+  }
+}
+
+.hamburger {
+  display: inline-block;
+  .line {
+    width: 32px;
+    height: 4px;
+    background-color: var(--color-text);
+    display: block;
+    margin: 5px auto;
+    transition: all 0.1s ease-in-out;
+  }
+}
+
+#hamburger-1.active .line:nth-child(2) {
+  opacity: 0;
+}
+
+#hamburger-1.active .line:nth-child(1) {
+  -webkit-transform: translateY(9px) rotate(45deg);
+  -ms-transform: translateY(9px) rotate(45deg);
+  -o-transform: translateY(9px) rotate(45deg);
+  transform: translateY(9px) rotate(45deg);
+}
+
+#hamburger-1.active .line:nth-child(3) {
+  -webkit-transform: translateY(-9px) rotate(-45deg);
+  -ms-transform: translateY(-9px) rotate(-45deg);
+  -o-transform: translateY(-9px) rotate(-45deg);
+  transform: translateY(-9px) rotate(-45deg);
+}
