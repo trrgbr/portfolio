@@ -277,8 +277,18 @@ section.experience {
           .container-icons {
             font-size: 1.6rem;
             margin-bottom: 8px;
+            display: flex;
+            align-items: center;
             & > i {
-              margin-right: 4px;
+              margin-right: 10px;
+            }
+            .firebase-icon {
+              display: inline-block;
+              height: 30px;
+              margin-left: -5px;
+              img {
+                height: 100%;
+              }
             }
           }
           .container-buttons {
