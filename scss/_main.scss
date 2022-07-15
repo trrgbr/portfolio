@@ -200,6 +200,7 @@ section.about {
     img {
       max-height: 250px;
       border-radius: 50%;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     }
   }
 }
@@ -229,8 +230,6 @@ section.about {
 section.experience {
   .container {
     .card {
-      .card__title {
-      }
       .content {
         display: flex;
         align-items: center;
@@ -238,25 +237,48 @@ section.experience {
           flex-direction: column-reverse;
         }
         .left {
-          padding-right: 20px;
-          width: 65%;
+          display: flex;
+          justify-content: center;
+          width: 55%;
+          transition: all 0.3s;
+          height: 350px;
+          overflow: hidden;
+          border-radius: 5px;
+          text-align: center;
+          background-color: #fff;
+          box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+
           @media only screen and(max-width:767px) {
             padding: 0;
             width: 100%;
           }
           img {
             box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-            transition: all 0.5s;
-            border-radius: 5px;
-            width: 100%;
-            &:hover {
-              transform: scale(1.05);
-            }
+            height: 100%;
+            transition: all 0.2s;
           }
         }
+        &:nth-of-type(odd) .left {
+          &:hover img {
+            transform: rotate(9deg) scale(1.15);
+          }
+        }
+        &:nth-of-type(even) .left {
+          &:hover img {
+            transform: rotate(-8deg) scale(1.15);
+          }
+        }
+
+        &:nth-of-type(odd) .left img {
+          transform: rotate(9deg) scale(1.1);
+        }
+        &:nth-of-type(even) .left img {
+          transform: rotate(-8deg) scale(1.1);
+        }
+
         .right {
-          width: 35%;
-          padding-left: 20px;
+          width: 45%;
+          padding-left: 30px;
           @media only screen and(max-width:767px) {
             width: 100%;
             margin-bottom: 2rem;
@@ -268,7 +290,7 @@ section.experience {
           .project-description {
             margin-bottom: 10px;
             font-size: 1.1rem;
-            line-height: 1.8rem;
+            line-height: 1.6rem;
             span {
               color: var(--color-headings);
               text-decoration: underline;

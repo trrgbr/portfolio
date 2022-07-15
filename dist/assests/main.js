@@ -66,6 +66,7 @@ const hexagonEl = document.querySelector('.hexagon');
 
 // remove the start layer
 window.addEventListener('load', function () {
+  document.querySelector('body').style.overflow = 'hidden';
   setTimeout(function () {
     hexagonEl.classList.add('close');
   }, 3500);
@@ -133,3 +134,22 @@ themeIcon.addEventListener('touchstart', function () {
   }
   document.querySelector('html').setAttribute('data-theme', `${attrValue}`);
 });
+
+//scroll disable
+
+// function disableScroll() {
+//   // Get the current page scroll position
+//   scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+//   (scrollLeft = window.pageXOffset || document.documentElement.scrollLeft),
+//     // if any scroll is attempted, set this to the previous value
+//     (window.onscroll = function () {
+//       window.scrollTo(scrollLeft, scrollTop);
+//     });
+// }
+
+// console.log('hello');
+// disableScroll();
+
+// function enableScroll() {
+//   window.onscroll = function () {};
+// }
