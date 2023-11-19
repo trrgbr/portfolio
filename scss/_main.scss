@@ -173,14 +173,12 @@ section.home {
       }
       .button {
         align-items: center;
-        transition: color, background-color, margin-right 0.2s;
         &:hover {
           background-color: transparent;
           transform: scale(1.05);
           color: var(--color-headings);
         }
         &.floating {
-          align-self: flex-start;
           justify-content: center;
           display: flex;
           position: fixed;
@@ -193,6 +191,7 @@ section.home {
           height: 5rem;
           border-radius: 300px;
           padding: 0;
+          transition: color, background-color, margin-right 0.2s;
           @media only screen and (max-width: 991px) {
             margin-right: 2vw;
             margin-bottom: 2vw;
