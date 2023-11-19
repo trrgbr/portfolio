@@ -7,40 +7,56 @@ header {
   z-index: 10;
   position: fixed;
   width: 100%;
-  // background: linear-gradient(180deg, var(--bg-panel) 0%, var(--bg-panel) 70%, var(--gradient-second) 100%);
+  opacity: 0.95;
   background-color: var(--bg-panel);
   padding: 1.2rem 5vw;
-  transition: all 500ms cubic-bezier(0.86, 0.005, 0.105, 1);
+  transition: all 0.2s ease-in-out;
+  border-bottom: 1px solid rgba(var(--color-text-rgb), 0.1);
+  &.open {
+    @media only screen and (max-width: 991px) {
+      height: 100vh;
+      opacity: 1;
+      border-bottom: 1px solid rgba(var(--color-text-rgb), 0);
+    }
+  }
   .navigation {
     font-size: 1.4rem;
     font-weight: 600;
-    @media only screen and(max-width: 991px) {
+    @media only screen and (max-width: 991px) {
     }
     .navigation__list {
       display: flex;
       flex-direction: row;
-      @media only screen and(max-width: 991px) {
+      @media only screen and (max-width: 991px) {
         flex-direction: column;
         align-items: center;
       }
       .hamburger {
+        cursor: pointer;
         display: none;
-        @media only screen and(max-width: 991px) {
+        @media only screen and (max-width: 991px) {
           display: block;
         }
       }
 
       .nav__menu {
-        @media only screen and(max-width: 991px) {
+        @media only screen and (max-width: 991px) {
           display: none;
         }
       }
       .navigation__item {
+        &.menu-item {
+          @media only screen and (max-width: 991px) {
+            width: 100%;
+            text-align: center;
+          }
+        }
+
         a {
           cursor: pointer;
         }
         &:first-of-type {
-          @media only screen and(max-width: 991px) {
+          @media only screen and (max-width: 991px) {
             align-self: flex-end;
           }
         }
@@ -49,18 +65,18 @@ header {
         }
         &:not(:nth-of-type(-n + 2)) {
           margin-left: 3rem;
-          @media only screen and(max-width: 991px) {
+          @media only screen and (max-width: 991px) {
             margin-left: 0;
           }
         }
         &:nth-of-type(2) {
           margin-right: auto;
-          @media only screen and(max-width: 991px) {
+          @media only screen and (max-width: 991px) {
             margin-right: 0;
           }
         }
-        transition: 0.3s;
-        @media only screen and(max-width: 991px) {
+        transition: 0.2s;
+        @media only screen and (max-width: 991px) {
           &:not(:nth-of-type(1)) {
             margin-bottom: 1rem;
           }
@@ -68,11 +84,17 @@ header {
             margin-bottom: 0;
           }
           &:not(:first-of-type) {
+            position: relative;
             display: none;
+            left: -100%;
+            transition: all 0.4s ease-in-out;
+            &.animate {
+              left: 0;
+            }
           }
         }
 
-        &:hover {
+        a:hover {
           color: var(--color-headings);
         }
       }
@@ -84,13 +106,14 @@ header.hide {
   transform: translateY(-80px);
 }
 section {
-  padding: 0 5vw;
+  scroll-margin: 100px;
+  padding: 0 40px;
   margin-bottom: 50px;
   transition: all 0.2s;
   background-color: var(--bg);
   width: 100%;
-  @media only screen and(max-width:991px) {
-    padding: 0 3vw;
+  @media only screen and (max-width: 767px) {
+    padding: 0 24px;
   }
 }
 
@@ -104,13 +127,38 @@ section.home {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
+    @media only screen and (max-width: 767px) {
+      align-items: center;
+    }
     .intro {
       font-size: 4.5rem;
       font-weight: 700;
       margin-bottom: 3rem;
-      @media only screen and(max-width:767px) {
+      @media only screen and (max-width: 767px) {
         font-size: 3.2rem;
         margin-bottom: 2.2rem;
+        text-align: center;
+      }
+      .text-image {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        @media only screen and (max-width: 767px) {
+          justify-content: center;
+        }
+        span {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+      .hand {
+        height: 70px;
+        display: inline-block;
+        img {
+          height: 100%;
+        }
       }
       .title {
         color: var(--color-headings);
@@ -120,7 +168,7 @@ section.home {
       min-height: 65px;
       position: relative;
       color: var(--color-text-button);
-      @media only screen and(max-width:991px) {
+      @media only screen and (max-width: 991px) {
         min-height: 45px;
       }
       .button {
@@ -145,7 +193,7 @@ section.home {
           height: 5rem;
           border-radius: 300px;
           padding: 0;
-          @media only screen and(max-width:991px) {
+          @media only screen and (max-width: 991px) {
             margin-right: 2vw;
             margin-bottom: 2vw;
             width: 4rem;
@@ -164,6 +212,10 @@ section.home {
       .home__social-item {
         margin-right: 2rem;
         display: inline-block;
+        transition: all 0.15s ease-in-out;
+        &:hover {
+          transform: scale(1.15);
+        }
         i {
           font-size: 2rem;
           font-weight: 900;
@@ -177,16 +229,19 @@ section.about {
   .content {
     display: flex;
     justify-content: space-between;
-    @media only screen and(max-width:767px) {
+    @media only screen and (max-width: 767px) {
       flex-direction: column-reverse;
     }
   }
   .left {
     width: 65%;
     padding-right: 2rem;
-    @media only screen and(max-width:767px) {
+    @media only screen and (max-width: 767px) {
       width: 100%;
       padding: 0;
+    }
+    .a22-link {
+      text-decoration: underline;
     }
   }
   .right {
@@ -194,13 +249,18 @@ section.about {
     justify-content: center;
     position: relative;
     padding: 0 20px;
-    @media only screen and(max-width:767px) {
+    @media only screen and (max-width: 767px) {
       margin-bottom: 2rem;
+      padding: 0;
     }
     img {
       max-height: 250px;
-      border-radius: 50%;
-      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      width: 100%;
+      max-width: 250px;
+      border-radius: 16px;
+      box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+      -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+      filter: grayscale(100%);
     }
   }
 }
@@ -233,25 +293,28 @@ section.experience {
       .content {
         display: flex;
         align-items: center;
-        @media only screen and(max-width:767px) {
+        @media only screen and (max-width: 767px) {
           flex-direction: column-reverse;
         }
         .left {
           display: flex;
           justify-content: center;
           width: 55%;
-          transition: all 0.3s;
+          transition: all 0.2s;
           height: 350px;
           overflow: hidden;
-          border-radius: 5px;
+          border-radius: 8px;
           text-align: center;
           background-color: #fff;
           box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 
-          @media only screen and(max-width:767px) {
+          @media only screen and (max-width: 767px) {
             padding: 0;
             width: 100%;
+            height: auto;
+            aspect-ratio: 3 / 2;
           }
+
           img {
             box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
             height: 100%;
@@ -279,9 +342,9 @@ section.experience {
         .right {
           width: 45%;
           padding-left: 30px;
-          @media only screen and(max-width:767px) {
+          @media only screen and (max-width: 767px) {
             width: 100%;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             padding: 0;
           }
           .project-title {
@@ -316,7 +379,7 @@ section.experience {
           .container-buttons {
             & > div {
               margin-bottom: 6px;
-              @media only screen and(max-width:767px) {
+              @media only screen and (max-width: 767px) {
                 display: inline-block;
                 margin-right: 0.5rem;
               }
@@ -337,18 +400,16 @@ section.skills {
     justify-content: space-between;
     flex-wrap: wrap;
     .skill-container {
-      @media only screen and(max-width:767px) {
+      @media only screen and (max-width: 767px) {
         width: 25%;
         margin-bottom: 1rem;
       }
-      &.sass {
-        .skill-title {
-          margin-top: -3px;
-        }
-      }
-      &.jquery {
-        .skill-title {
-          margin-top: -3px;
+      &.custom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        img {
+          height: 48px;
         }
       }
       text-align: center;
@@ -379,8 +440,6 @@ section.form {
   align-items: center;
   width: 100%;
   height: 100%;
-  left: 0;
-  top: 0;
 }
 
 .form-container {
@@ -401,7 +460,7 @@ form * {
   font-size: 1.2rem;
   cursor: pointer;
   text-decoration: none;
-  @media only screen and(max-width:767px) {
+  @media only screen and (max-width: 767px) {
     font-size: 1rem;
   }
 }
@@ -425,8 +484,8 @@ form .field label {
   text-align: center;
   padding: 18px 0;
   color: #fff;
-  @media only screen and(max-width:767px) {
-    padding: 10px;
+  @media only screen and (max-width: 767px) {
+    padding: 12px;
   }
 }
 
@@ -438,14 +497,15 @@ form .field textarea {
   height: 64px;
   margin: 0;
   padding-left: 20%;
+  font-family: 'Poppins', sans-serif;
   color: #333333;
   &::placeholder {
     color: transparent;
   }
-  @media only screen and(max-width:767px) {
+  @media only screen and (max-width: 767px) {
     height: 45px;
   }
-  @media only screen and(max-width:599px) {
+  @media only screen and (max-width: 599px) {
     height: 45px;
     padding-left: 8%;
     &::placeholder {
@@ -459,7 +519,7 @@ form #msg {
   resize: none;
   transition: all 300ms ease-in-out;
   padding-top: 18px;
-  @media only screen and(max-width:767px) {
+  @media only screen and (max-width: 767px) {
     height: 45px;
   }
 }
@@ -475,12 +535,12 @@ form .field input[type='email']:focus + label,
 form .field input[type='email']:not(:placeholder-shown) + label,
 form .field:hover label {
   width: 18%;
-  @media only screen and(max-width:599px) {
+  @media only screen and (max-width: 599px) {
     display: none;
   }
 }
 form input[type='text']:focus + label {
-  @media only screen and(max-width:599px) {
+  @media only screen and (max-width: 599px) {
     &::placeholder::before {
       content: 'Name';
     }
@@ -691,7 +751,7 @@ footer {
     padding-bottom: 1.2rem;
     font-size: 1rem;
     text-align: center;
-    @media only screen and(max-width:767px) {
+    @media only screen and (max-width: 767px) {
       font-size: 0.8rem;
     }
   }

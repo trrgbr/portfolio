@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link rel="stylesheet" href="css/myPage.min.css" />
-    <script defer src="assests/main.js"></script>
+    <script defer src="js/main.js"></script>
     <title>Gábor Tarr || Web Developer</title>
   </head>
   <body class="animation">
@@ -48,11 +48,13 @@
       <section class="home" id="home">
         <div class="container">
           <div class="intro-box">
-            <div class="intro">
-              Hi, 👋🏻<br />
-              I'm <span class="title">Gábor</span>,<br />
-              Front-End Developer
-            </div>
+            <h1 class="intro">
+              <div class="text-image">
+                Hi, <span class="hand"><img src="/assests/Pictures/wavehand.svg" alt="hi" /></span>
+              </div>
+              <div>I'm <span class="title">Gábor</span>,</div>
+              <div>Front-End Developer</div>
+            </h1>
             <div class="button-wrapper">
               <a href="#contact" class="button rounded-full">
                 <i class="far fa-comments"></i> <span class="text"> Contact</span>
@@ -81,19 +83,22 @@
             <div class="content">
               <div class="left">
                 <div class="card__text">
-                  I'm a junior Front-End developer originally from Serbia 🇷🇸 , currently based in Munich Germany 🇩🇪 . I
-                  like to create things that live on the internet and I enjoy the whole path that lead me to the final
-                  goal. My interest in web development started in 2019, I teached myself through Youtube tutorials,
-                  Udemy courses, and in year 2020 I decided to enroll into school (in Germany) to be a web developer. In
-                  February I graduate the IHK school and now I'm working for company
-                  <span><a href="https://agentur22.de/" target="_blank" class="">Agentur 22</a></span
-                  >..
+                  I'm a <b>junior Front-End developer</b> originally from <b>Serbia</b>, currently based in
+                  <b>Munich Germany</b>. I like to create things that live on the internet and I enjoy the whole path
+                  that lead me to the final goal. My interest in web development started in 2019, I taught myself
+                  through Youtube tutorials, Udemy courses, and in year 2020 I decided to enroll into school (in
+                  Germany) to be a web developer. In <b>February 2022</b> I graduate the <b>IHK</b> school and now I
+                  work at company
+                  <span
+                    ><a href="https://agentur22.de/" target="_blank" class="a22-link"><b>Agentur 22</b></a
+                    >.</span
+                  >
                   <br />
-                  In my free time I like DIY, playing guitar 🎸 and building my own projects.
+                  In my free time I like DIY, playing guitar, biking and building my own projects.
                 </div>
               </div>
               <div class="right">
-                <img src="assests/Pictures/myself.jpg" alt="myself" />
+                <img src="assests/Pictures/profile.png" alt="myself" />
               </div>
             </div>
           </div>
@@ -216,43 +221,31 @@
       <section class="skills" id="skills">
         <div class="container">
           <div class="card block">
-            <h2 class="card__title">Skills & Toos</h2>
+            <h2 class="card__title">Skills & Tools</h2>
             <div class="content container-icons">
               <div class="skill-container">
                 <i class="fa-brands fa-html5 html-icon"></i>
-                <span class="skill-title"> HTML 5 </span>
               </div>
               <div class="skill-container">
                 <i class="fa-brands fa-css3-alt css-icon"></i>
-                <span class="skill-title"> CSS 3 </span>
               </div>
-              <div class="skill-container sass">
-                <img src="assests/Pictures/icons8-sass.svg" class="inline-block h-20 sass-img" alt="sass" />
-                <span class="skill-title"> SASS </span>
-              </div>
-              <div class="skill-container">
-                <i class="fa-brands fa-bootstrap bootstrap-icon"></i>
-                <span class="skill-title"> Bootstrap </span>
+              <div class="skill-container custom">
+                <img src="assests/Pictures/icons8-sass.svg" class="inline-block h-20" alt="sass" />
               </div>
               <div class="skill-container">
                 <i class="fa-brands fa-js js-icon"></i>
-                <span class="skill-title"> JavaScript </span>
               </div>
-              <div class="skill-container jquery">
-                <img src="assests/Pictures/jquery.png" class="inline-block h-12 jquery-img" alt="jquery" />
-                <span class="skill-title"> jQuery </span>
+              <div class="skill-container custom">
+                <img src="assests/Pictures/vuejs.png" class="inline-block h-12" alt="jquery" />
               </div>
               <div class="skill-container">
                 <i class="fa-brands fa-react react-icon"></i>
-                <span class="skill-title"> React </span>
+              </div>
+              <div class="skill-container custom">
+                <img src="assests/Pictures/node.svg" class="inline-block h-12" alt="jquery" />
               </div>
               <div class="skill-container">
                 <i class="fa-brands fa-git-alt git-icon"></i>
-                <span class="skill-title"> Git </span>
-              </div>
-              <div class="skill-container">
-                <i class="fa-brands fa-github"></i>
-                <span class="skill-title"> Github </span>
               </div>
             </div>
           </div>
@@ -310,7 +303,7 @@
     </main>
 
     <footer>
-      <div class="footer-text">Copyrigth © 2022 All rights reserved</div>
+      <div class="footer-text">Copyrigth © <span class="year"></span> All rights reserved</div>
     </footer>
   </body>
 </html>
