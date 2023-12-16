@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.querySelector('span.year');
   yearEl.innerHTML = new Date().getFullYear();
 
+  // button observer
   const options = {
     root: null,
     rootMargin: '0px',
@@ -15,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const buttonObserver = new IntersectionObserver(buttonTouch, options);
   buttonObserver.observe(headerH1);
 
-  //floating button
   function buttonTouch(button) {
     button.forEach((button) => {
       if (button.isIntersecting) {
@@ -25,6 +25,53 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // sections observers
+  const sectionOption = {
+    root: null,
+    rootMargin: '0px 0px -100px 0px',
+    threshold: 0.01,
+  };
+
+  function sectionTouch(sections, observer) {
+    sections.forEach((section) => {
+      if (section.isIntersecting) {
+        section.target.classList.add('animate');
+        observer.unobserve(section.target);
+      }
+    });
+  }
+
+  const sections = document.querySelectorAll('section');
+  const sectionObserver = new IntersectionObserver(sectionTouch, sectionOption);
+
+  sections.forEach((section) => {
+    sectionObserver.observe(section);
+  });
+
+  // project observer
+  const projectOption = {
+    root: null,
+    rootMargin: '0px 0px 0px 0px',
+    threshold: 0.0001,
+  };
+
+  function projectTouch(projects, observer) {
+    projects.forEach((project) => {
+      if (project.isIntersecting) {
+        console.log('intersecting');
+        project.target.classList.add('animate');
+        observer.unobserve(project.target);
+      }
+    });
+  }
+
+  const projects = document.querySelectorAll('section.experience .content');
+  const projectObserver = new IntersectionObserver(projectTouch, projectOption);
+
+  projects.forEach((project) => {
+    projectObserver.observe(project);
+  });
 
   const header = document.querySelector('header');
 

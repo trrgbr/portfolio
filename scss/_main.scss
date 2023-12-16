@@ -1,6 +1,5 @@
 //NAVIGATION
 body {
-  // overflow: hidden;
   background-color: var(--bg);
 }
 header {
@@ -117,9 +116,25 @@ section {
   }
 }
 
+section:not(.home, .hexagon) {
+  .container {
+    position: relative;
+    opacity: 0;
+    top: 50px;
+    transition: all 0.8s ease-in-out;
+  }
+  &.animate {
+    .container {
+      top: 0;
+      opacity: 1;
+    }
+  }
+}
+
 //section home
 section.home {
-  height: 100vh;
+  padding-top: 80px;
+  min-height: 100vh;
   background-color: var(--bg);
   display: flex;
   .intro-box {
@@ -288,11 +303,23 @@ section.about {
 
 section.experience {
   .container {
+    // overflow: hidden;
     .card {
       .content {
+        position: relative;
+        right: 40vw;
+        opacity: 0;
         display: flex;
         align-items: center;
+        transform: scale(0.95);
+        transition: all 1.2s ease-in-out;
+        &.animate {
+          right: 0;
+          opacity: 1;
+          transform: scale(1);
+        }
         @media only screen and (max-width: 767px) {
+          transition: all 0.7s ease-in-out;
           flex-direction: column-reverse;
         }
         .left {
@@ -755,3 +782,7 @@ footer {
     }
   }
 }
+
+// section.hexagon {
+//   display: none !important;
+// }
