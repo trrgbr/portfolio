@@ -1,6 +1,9 @@
 //NAVIGATION
 body {
   background-color: var(--bg);
+  &.animation {
+    overflow: hidden;
+  }
 }
 header {
   z-index: 10;
@@ -584,12 +587,14 @@ form input[type='submit'] {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: fixed;
   top: 0;
-  width: 100%;
+  left: 0;
+  width: 100vw;
   height: 100vh;
   background-color: $main-text;
   opacity: 1;
+  overflow: hidden;
   .gt {
     position: absolute;
     transform: translate(-50%, -50%);
@@ -782,7 +787,3 @@ footer {
     }
   }
 }
-
-// section.hexagon {
-//   display: none !important;
-// }

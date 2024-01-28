@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   buttonObserver.observe(headerH1);
 
   function buttonTouch(button) {
-    button.forEach((button) => {
+    button.forEach(button => {
       if (button.isIntersecting) {
         contactButtonEL.classList.remove('floating');
       } else {
@@ -26,15 +26,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // sections observers
+  // sections animate observers
   const sectionOption = {
     root: null,
     rootMargin: '0px 0px -100px 0px',
     threshold: 0.01,
   };
 
-  function sectionTouch(sections, observer) {
-    sections.forEach((section) => {
+  const sectionsAnimate = document.querySelectorAll('section.ani');
+
+  function sectionTouch(sectionAni, observer) {
+    sectionAni.forEach(section => {
       if (section.isIntersecting) {
         section.target.classList.add('animate');
         observer.unobserve(section.target);
@@ -42,10 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const sections = document.querySelectorAll('section');
   const sectionObserver = new IntersectionObserver(sectionTouch, sectionOption);
 
-  sections.forEach((section) => {
+  sectionsAnimate.forEach(section => {
     sectionObserver.observe(section);
   });
 
@@ -57,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   function projectTouch(projects, observer) {
-    projects.forEach((project) => {
+    projects.forEach(project => {
       if (project.isIntersecting) {
         console.log('intersecting');
         project.target.classList.add('animate');
@@ -69,13 +70,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const projects = document.querySelectorAll('section.experience .content');
   const projectObserver = new IntersectionObserver(projectTouch, projectOption);
 
-  projects.forEach((project) => {
+  projects.forEach(project => {
     projectObserver.observe(project);
   });
 
   const header = document.querySelector('header');
 
-  //haburger icon
+  //hamburger icon
   const menuClick = function (e) {
     this.parentNode.classList.toggle('active');
     this.classList.toggle('active');
@@ -96,14 +97,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelector('.hamburger').addEventListener('click', menuClick);
 
-  document.querySelectorAll('.navigation__item.menu-item a').forEach((navItem) => {
+  document.querySelectorAll('.navigation__item.menu-item a').forEach(navItem => {
     navItem.addEventListener('click', function () {
       document.querySelector('.hamburger').classList.remove('active');
       document.querySelector('.navigation__item.menu-button').classList.remove('active');
       header.classList.remove('open');
-    });
-    document.querySelectorAll('.menu-item').forEach((el, idx) => {
-      el.classList.remove('animate');
+      document.querySelectorAll('.menu-item').forEach((el, idx) => {
+        el.classList.remove('animate');
+      });
     });
   });
 
@@ -126,13 +127,12 @@ document.addEventListener('DOMContentLoaded', () => {
 // remove the start layer
 window.addEventListener('load', function () {
   const hexagonEl = document.querySelector('.hexagon');
-
-  document.querySelector('body').style.overflow = 'hidden';
+  const body = document.querySelector('body');
   setTimeout(function () {
     hexagonEl.classList.add('close');
   }, 3500);
   setTimeout(function () {
     hexagonEl.remove();
-    document.querySelector('body').style.overflow = 'auto';
+    body.classList.remove('animation');
   }, 4500);
 });
