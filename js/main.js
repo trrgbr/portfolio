@@ -1,7 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const wrapper = document.querySelector('.wrapper');
-  const card = document.querySelectorAll('.card');
-  const contactButtonWrapper = document.querySelector('.button-wrapper');
   const headerH1 = document.querySelector('h1.intro');
   const contactButtonEL = document.querySelector('.intro-box .button');
   const yearEl = document.querySelector('span.year');
