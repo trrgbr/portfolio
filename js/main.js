@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     threshold: 0.0001,
   };
 
-  console.log('test');
+  // console.log('test');
 
   function projectTouch(projects, observer) {
     projects.forEach(project => {
